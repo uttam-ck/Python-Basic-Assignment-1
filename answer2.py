@@ -9,20 +9,28 @@
 
 
 
-import string 
 import random
+import string
 
-list_1 = list(string.ascii_lowercase)
-list_2 = list(string.ascii_uppercase)
-list_3 = list(string.digits)
-list_4 = list(string.punctuation)
+def generate_password():
+    """Generates a secure 16-character password meeting all conditions."""
+    uppercase = random.sample(string.ascii_uppercase, 1)
+    lowercase = random.sample(string.ascii_lowercase, 1)
+    numbers = random.sample(string.digits, 2)
+    special_chars = random.sample("!@#$%&*", 1)
+    
+    remaining_chars = random.sample(
+        string.ascii_letters + string.digits + "!@#$%&*", 11
+    )
+    
+    password_list = uppercase + lowercase + numbers + special_chars + remaining_chars
+    random.shuffle(password_list)
+    
+    return "".join(password_list)
 
-pass_length = 16
+if __name__ == "__main__":
+    print("Generated Password:", generate_password())
 
-password = []
-
-for x in range(4):
-    new_list
     
     
 
